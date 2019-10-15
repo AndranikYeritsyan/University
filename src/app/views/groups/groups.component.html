@@ -1,0 +1,35 @@
+<div class="all-parrent">
+    <div class="col-lg-6">
+         <div class="card">
+                <div class="card-header">
+                    <p class=""> Group Table</p>
+                </div>
+
+                <div class="button-parrent"> <button aria-pressed="true" class="btn btn-block btn-success active"
+                        type="button" id="button" (click)='goCreatGroup()'>Creat Group</button> </div>
+                <div class="card-body">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Group</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let item of groupList'>
+                                <td>{{item.id}}</td>
+                                <td>{{item.get_faculty.name}}</td>
+                                <td>{{item.name}}</td>
+                                <td> <i class="fa fa-edit edit" id="edit" (click)='goEditGroup(item.id)'></i> <i class="fa fa-remove remove"
+                                        id="remove" (click)='goDeleteGroup(item.id)'></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+         </div>
+     </div>
+ </div>

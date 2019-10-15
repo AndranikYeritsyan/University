@@ -1,0 +1,53 @@
+<div class="all-parrent">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <p> Creat Student</p>
+            </div>
+
+            <div class="card-body" >
+                <form [formGroup]="studentForm">
+                    Name: <br>
+                    <input type="name" formControlName="name"  class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                        <p class="error" *ngIf = "errorName !== undefined">{{errorName}}</p>
+                    Lastname: <br>
+                    <input type="" formControlName="last_name" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                        <p class="error" *ngIf = "errorLastName !== undefined">{{errorLastName}}</p>
+                    Email: <br>
+                    <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                        <p class="error"  *ngIf = "errorEmail !== undefined">{{errorEmail}}</p>
+                    Phone: <br>
+                    <input type="phone" formControlName="phone" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                        <p class="error" *ngIf = "errorPhone !== undefined">{{errorPhone}}</p>
+
+                    <br> Faculty: <br>
+                    <select class="form-control" id="exampleFormControlSelect1"  formControlName="faculty_id" (change)='getFacultyGroups()' >
+                        <option [value]="null">select faculty</option>
+                        <option *ngFor='let iteam of studentsList' [value]='iteam.id' >{{iteam.name}}</option>
+                    </select>
+                    <p class="error" *ngIf = "errorFaculty !== undefined">{{errorFaculty}}</p>
+                    <div *ngIf="facultyGroups.length; else group">
+                        <br> Group: <br>
+                        <select class="form-control" id="exampleFormControlSelect1" formControlName="group_id">
+                            <option [value]="null">select group</option>
+                            <option *ngFor='let iteam of facultyGroups'  [value]='iteam.id'>{{iteam.name}}</option>
+                        </select>
+                    </div>
+                    <ng-template #group>
+                        <p class="error">no group</p>
+                    </ng-template>
+                    <p class="error" *ngIf = "errorGroup !== undefined">{{errorGroup}}</p>
+                </form>
+                <div class="button-parrent">
+                    <button ria-pressed="true" class="btn btn-block btn-success active" type="button" id="button2"
+                        (click)='goStudentsTable()'>Cancel</button>
+                    <button aria-pressed="true" class="btn btn-block btn-success active" type="button" id="button1"
+                        (click)='creatNewStudent()'>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,45 @@
+<div class="all-parrent">
+  <div class="col-lg-6">
+    <div class="card">
+        <div class="card-header">
+          <p> Students Table</p>
+        </div>
+
+        
+
+        <div class="button-parrent"> <button aria-pressed="true" class="btn btn-block btn-success active" type="button"
+            id="button" (click)="goCreatStudent()">Creat Student</button> </div>
+        <div class="card-body">
+          <table class="table">
+
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Faculties</th>
+                <th>Groups</th>
+                <th>Action</th>
+                
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of studentsList">
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <th>{{item.last_name}}</th>
+                <th>{{item.email}}</th>
+                <th>{{item.phone}}</th>
+                <th>{{item.get_faculty.name}}</th>
+                <th>{{item.get_group[0].name}}</th>
+                <td> <i class="fa fa-edit edit" id="edit" (click)="goEditStudent(item.id)"></i> <i class="fa fa-remove remove" id="remove" (click)='goDeleteStudent(item.id)'></i></td>
+              </tr>
+            </tbody>
+          </table>
+
+      </div>
+   </div>
+</div>

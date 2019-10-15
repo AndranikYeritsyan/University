@@ -1,0 +1,79 @@
+<div class="all-parrent">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                <p class="faculty-table"> Dashboard</p>
+            </div>
+
+            <div class="card-body">
+                <form [formGroup]="studentForm">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+
+                                <th>Name</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Faculties</th>
+                                <th>Groups</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+
+                                <td><input type="" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Search by Name..." aria-describedby="emailHelp"
+                                        formControlName="name" aria-label="Search" (keyup)="getValueForNam('name')">
+                                </td>
+                                <th><input type="" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Search by Lastname..." aria-describedby="emailHelp"
+                                        formControlName="last_name" aria-label="Search"
+                                        (keyup)="getValueForNam('last_name')"></th>
+                                <th><input type="" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Search by Email..." aria-describedby="emailHelp"
+                                        formControlName="email" aria-label="Search" (keyup)="getValueForNam('email')">
+                                </th>
+                                <th><input type="" class="form-control" id="exampleInputEmail1"
+                                        placeholder="Search by Phone..." aria-describedby="emailHelp"
+                                        formControlName="phone" aria-label="Search" (keyup)="getValueForNam('phone')">
+                                </th>
+                                <th><select class="form-control" 
+                                        formControlName="facultyId" (change)="getValueForNam('facultyId')">
+                                        <option value="">--Please select</option>
+                                        <option *ngFor='let iteam of studentsList' [value]="iteam.get_faculty.name">{{iteam.get_faculty.name}} </option>
+                                    </select></th>
+                                <th><select class="form-control" 
+                                        formControlName="groupId" (change)="getValueForNam('groupId')">
+                                        <option value="">--Please select</option>
+                                        <option *ngFor='let iteam of studentsList' [value]="iteam.get_group[0].name">
+                                            {{iteam.get_group[0].name}}
+                                        </option> 
+                                    </select></th>
+                            </tr>
+
+                        </tbody>
+
+
+
+                        <thead *ngFor='let iteam of getValueForName'>
+
+                            <th>{{iteam.name}}</th>
+                            <th>{{iteam.last_name}}</th>
+                            <th>{{iteam.email}}</th>
+                            <th>{{iteam.phone}}</th>
+                            <th>{{iteam.get_faculty.name}}</th>
+                            <th>{{iteam.get_group[0].name}}</th>
+
+                        </thead>
+
+                    </table>
+                </form>
+
+            </div>
+     </div>
+</div>

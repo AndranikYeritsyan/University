@@ -1,0 +1,28 @@
+.all-parrent{
+    width: 180%;
+}
+.button-parrent{
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+
+.card-header{
+    width: 100%;
+    height: 50px;;
+    background-color: #c8ced3;
+}
+ #button1{
+    width: 60px;
+    margin-top: 15px;
+}
+#button2{
+    width: 70px;
+    margin-top: 15px;
+    margin-right: 8px;
+    background-color: red;
+    border:solid 0px;
+}
+#error{
+    color: red;
+}
